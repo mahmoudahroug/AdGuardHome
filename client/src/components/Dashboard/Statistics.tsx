@@ -11,10 +11,12 @@ import { RESPONSE_FILTER } from '../../helpers/constants';
 interface StatisticsProps {
     dnsQueries: number[];
     blockedFiltering: number[];
+    cachedQueries: number[];
     replacedSafebrowsing: number[];
     replacedParental: number[];
     numDnsQueries: number;
     numBlockedFiltering: number;
+    numCachedQueries: number;
     numReplacedSafebrowsing: number;
     numReplacedParental: number;
 }
@@ -22,15 +24,17 @@ interface StatisticsProps {
 const Statistics = ({
     dnsQueries,
     blockedFiltering,
+    cachedQueries,
     replacedSafebrowsing,
     replacedParental,
     numDnsQueries,
     numBlockedFiltering,
+    numCachedQueries,
     numReplacedSafebrowsing,
     numReplacedParental,
 }: StatisticsProps) => (
     <div className="row">
-        <div className="col-sm-6 col-lg-3">
+        <div className="col-sm-6 col-lg">
             <StatsCard
                 total={numDnsQueries}
                 lineData={dnsQueries}
@@ -43,7 +47,17 @@ const Statistics = ({
             />
         </div>
 
-        <div className="col-sm-6 col-lg-3">
+        <div className="col-sm-6 col-lg">
+            <StatsCard
+                total={numCachedQueries}
+                lineData={cachedQueries}
+                percent={getPercent(numDnsQueries, numCachedQueries)}
+                title={<Trans>cache_hit_rate</Trans>}
+                variant={STATS_CARD_VARIANTS.CACHE}
+            />
+        </div>
+
+        <div className="col-sm-6 col-lg">
             <StatsCard
                 total={numBlockedFiltering}
                 lineData={blockedFiltering}
@@ -62,7 +76,7 @@ const Statistics = ({
             />
         </div>
 
-        <div className="col-sm-6 col-lg-3">
+        <div className="col-sm-6 col-lg">
             <StatsCard
                 total={numReplacedSafebrowsing}
                 lineData={replacedSafebrowsing}
@@ -76,7 +90,7 @@ const Statistics = ({
             />
         </div>
 
-        <div className="col-sm-6 col-lg-3">
+        <div className="col-sm-6 col-lg">
             <StatsCard
                 total={numReplacedParental}
                 lineData={replacedParental}

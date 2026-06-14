@@ -196,10 +196,12 @@ const Dashboard = ({
                         <Statistics
                             dnsQueries={stats.dnsQueries}
                             blockedFiltering={stats.blockedFiltering}
+                            cachedQueries={stats.cachedQueries}
                             replacedSafebrowsing={stats.replacedSafebrowsing}
                             replacedParental={stats.replacedParental}
                             numDnsQueries={stats.numDnsQueries}
                             numBlockedFiltering={stats.numBlockedFiltering}
+                            numCachedQueries={stats.numCachedQueries}
                             numReplacedSafebrowsing={stats.numReplacedSafebrowsing}
                             numReplacedParental={stats.numReplacedParental}
                         />

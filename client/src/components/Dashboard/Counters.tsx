@@ -63,6 +63,7 @@ const Counters = ({ refreshButton, subtitle }: CountersProps) => {
     const {
         interval,
         numDnsQueries,
+        numCachedQueries,
         numBlockedFiltering,
         numReplacedSafebrowsing,
         numReplacedParental,
@@ -83,6 +84,11 @@ const Counters = ({ refreshButton, subtitle }: CountersProps) => {
             count: formatNumber(numDnsQueries),
             tooltipTitle: dnsQueryTooltip,
             response_status: RESPONSE_FILTER.ALL.QUERY,
+        },
+        {
+            label: 'cache_hit_rate',
+            count: formatNumber(numCachedQueries),
+            tooltipTitle: 'number_of_dns_query_cached',
         },
         {
             label: 'blocked_by',

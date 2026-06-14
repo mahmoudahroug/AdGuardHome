@@ -10,6 +10,7 @@ import './StatsCard.css';
 
 export const STATS_CARD_VARIANTS = {
     QUERIES: 'queries',
+    CACHE: 'cache',
     ADS: 'ads',
     THREATS: 'threats',
     ADULT: 'adult',
@@ -19,6 +20,7 @@ type StatsCardVariant = typeof STATS_CARD_VARIANTS[keyof typeof STATS_CARD_VARIA
 
 const CHART_COLORS: Record<StatsCardVariant, string> = {
     queries: '#7F7F7F',
+    cache: '#67B279',
     ads: '#F67247',
     threats: '#D58500',
     adult: '#A870B2',
